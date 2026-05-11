@@ -553,10 +553,20 @@ btn.classList.add('recording'); w.classList.add('active');
 btn.childNodes[0].textContent = ""; 
 h.innerText = "正在倾听..."; h.style.color = "var(--recording-color)";
 setTimeout(() => { 
-btn.classList.remove('recording'); w.classList.remove('active'); 
-btn.classList.add('done'); btn.innerHTML = "✅"; 
-t.classList.add('success'); h.innerText = "读对了！"; 
-h.style.color = "var(--success-color)"; n.style.display = "block"; 
+setTimeout(() => { 
+    btn.classList.remove('recording'); 
+    w.classList.remove('active'); 
+    
+    // 下面这三行是重点
+    btn.classList.add('done'); 
+    btn.style.color = "white"; // 确保颜色不是透明的，设为白色
+    btn.innerHTML = "✅"; 
+    
+    t.classList.add('success'); 
+    h.innerText = "读对了！"; 
+    h.style.color = "var(--success-color)"; 
+    n.style.display = "block"; 
+}, duration);
 }, duration); 
 }
 </script>
